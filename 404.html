@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>        
+        body {
+            font-family: 'Lato', sans-serif;
+            color: #888;
+            margin: 0;
+        }
+        
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        #main {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-areas: 
+            'error'
+            'companylogo'
+            'appoverview';
+            height: 100vh;
+        }
+
+        .error-message {
+            grid-area: error;
+            justify-self: center;
+        }
+
+        .logo {
+            grid-area: companylogo;
+            justify-self: center;
+        }
+
+        .back-button {
+            grid-area: appoverview;
+            justify-self: center;
+        }
+
+        </style>
+</head>
+<body onload="loggedin_check()">
+    <div id="main">
+    	<div class="error-message">
+        		<h1>Error 404</h1>
+    	</div>
+        <div class="logo">
+            <img src="./../images/logo.png" alt="Company Logo">
+        </div>
+        <div class="back-button">
+            <a href="#" id="back-to-front"></a>
+        </div>
+    </div>
+<script>
+    function loggedin_check() {
+        const element = document.getElementById('back-to-front');
+        if (sessionStorage.getItem('loginStatus') == 'loggedin')
+        {
+            element.innerHTML = 'Tilbage til værktøjsoversigt';
+            element.href = "http://3.122.205.1:8080/#";
+        }
+        else 
+        {
+            element.innerHTML = 'Til loginside';
+            element.href = "http://3.122.205.1:8080/index.html";
+        }
+    }
+</script>
+</body>
+</html>
