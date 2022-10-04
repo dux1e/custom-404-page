@@ -22,25 +22,28 @@
             grid-template-columns: 1fr;
             grid-template-rows: 1fr 1fr 1fr;
             grid-template-areas: 
-            'error'
-            'companylogo'
-            'appoverview';
+            'top-row'
+            'center-row'
+            'bottom-row';
             height: 100vh;
         }
 
         .error-message {
-            grid-area: error;
+            grid-area: top-row;
             justify-self: center;
+            align-self: end;
         }
 
         .logo {
-            grid-area: companylogo;
+            grid-area: center-row;
             justify-self: center;
+            align-self: center;
         }
 
         .back-button {
-            grid-area: appoverview;
+            grid-area: bottom-row;
             justify-self: center;
+            align-self: start;
         }
 
         </style>
