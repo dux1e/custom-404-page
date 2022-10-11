@@ -8,42 +8,85 @@
     <style>        
         body {
             font-family: 'Lato', sans-serif;
-            color: #888;
+            color: rgb(102, 102, 102);
             margin: 0;
         }
         
         a {
+            font-family: 'Lato', sans-serif;
+            font-size: 3ex;
             text-decoration: none;
             color: black;
+            border: 1px solid grey;
+            border-radius: 5px;
+            padding: 2ex 6ex;
+            box-shadow: 0px 2px 4px 2px grey;
+        }
+
+        a:hover {
+            background-color: #c6161d;
+            color: white;
+            box-shadow: none;
+        }
+        
+        h1 {
+            font-size: 10ex;
         }
         
         #main {
             display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
             grid-template-areas: 
-            'top-row'
-            'center-row'
-            'bottom-row';
+            'logo error'
+            'logo link';
             height: 100vh;
         }
 
         .error-message {
-            grid-area: top-row;
+            grid-area: error;
             justify-self: center;
             align-self: end;
+            margin-top: 5em;
+            margin-bottom: 5em;
         }
 
         .logo {
-            grid-area: center-row;
+            grid-area: logo;
             justify-self: center;
             align-self: center;
         }
 
         .back-button {
-            grid-area: bottom-row;
+            grid-area: link;
             justify-self: center;
             align-self: start;
+            margin-top: 5em;
+            margin-bottom: 5em;
+        }
+
+        @media screen and (max-width: 1000px) {
+            #main {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+                grid-template-areas: 
+                'error'
+                'link';
+            }
+
+            .logo {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            a {
+                font-size: 2ex;
+            }
+
+            h1 {
+                font-size: 5ex;
+            }
         }
 
         </style>
@@ -54,24 +97,24 @@
         		<h1>Error 404</h1>
     	</div>
         <div class="logo">
-            <img src="./../images/logo.png" alt="Company Logo">
+            <img src="logo.png" alt="Company Logo"> <!-- TODO: change the image to where the company logo actually is-->
         </div>
         <div class="back-button">
-            <a href="#" id="back-to-front"></a>
+            <a href="#" id="back"></a>
         </div>
     </div>
 <script>
     function loggedin_check() {
-        const element = document.getElementById('back-to-front');
-        if (sessionStorage.getItem('loginStatus') == 'loggedin')
+        const element = document.getElementById('back');
+        if (sessionStorage.getItem('loginStatus') == 'loggedin') // TODO: change to check for actual login status
         {
             element.innerHTML = 'Tilbage til værktøjsoversigt';
-            element.href = "http://3.122.205.1:8080/#";
+            element.href = "http://3.122.205.1:8080/#"; // TODO: change to the actual site to goto
         }
         else 
         {
             element.innerHTML = 'Til loginside';
-            element.href = "http://3.122.205.1:8080/index.html";
+            element.href = "http://3.122.205.1:8080/index.html"; // TODO: change to the actual site to goto
         }
     }
 </script>
