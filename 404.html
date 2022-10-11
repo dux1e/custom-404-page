@@ -106,15 +106,15 @@
 <script>
     function loggedin_check() {
         const element = document.getElementById('back');
-        if (sessionStorage.getItem('loginStatus') == 'loggedin') // TODO: change to check for actual login status
+        if ("not logged in") // TODO: change to check for actual login status
         {
             element.innerHTML = 'Tilbage til værktøjsoversigt';
-            element.href = "http://3.122.205.1:8080/#"; // TODO: change to the actual site to goto
+            element.href = "#"; // TODO: change to the actual site to goto
         }
         else 
         {
             element.innerHTML = 'Til loginside';
-            element.href = "http://3.122.205.1:8080/index.html"; // TODO: change to the actual site to goto
+            element.href = "#"; // TODO: change to the actual site to goto
         }
     }
 </script>
