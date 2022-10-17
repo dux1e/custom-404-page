@@ -22,6 +22,7 @@
             padding: 2ex 6ex;
             box-shadow: 0px 2px 4px 2px grey;
             transition-duration: 0.15s;
+            display: block;
         }
 
         a:hover {
@@ -66,6 +67,7 @@
             margin-bottom: 5em;
         }
 
+        /* Media queries for width */
         @media screen and (max-width: 1000px) {
             #main {
                 grid-template-columns: 1fr;
@@ -78,6 +80,7 @@
             .logo {
                 display: none;
             }
+
         }
 
         @media screen and (max-width: 400px) {
@@ -87,6 +90,43 @@
 
             h1 {
                 font-size: 5ex;
+            }
+        }
+
+        @media screen and (max-width: 320px) {
+            a {
+                text-align: center;
+            }
+            .back-button {
+                margin: 5em 1em;
+            }
+        }
+
+        /* Media queries for height */
+        @media screen and  (max-height: 550px) {
+            #main {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr;
+                grid-template-areas: 
+                'error link';
+            }
+
+            .logo {
+                display: none;
+            }
+
+            .error-message {
+                /* justify-self: center; */
+                align-self: center;
+                /* margin-top: 0;
+                margin-bottom: 0; */
+            }
+
+            .back-button {
+                /* justify-self: center; */
+                align-self: center;
+                /* margin-top: 0;
+                margin-bottom: 0; */
             }
         }
 
